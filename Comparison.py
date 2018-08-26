@@ -19,7 +19,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,train_size=0.2)
 models = [LinearRegression(),
           RandomForestRegressor(n_estimators=100, max_features='sqrt'),
           KNeighborsRegressor(n_neighbors=6),
-          SVR(kernel='linear')    ]
+          svr_rbf = SVR(kernel='rbf', C=1e3, gamma=0.1)
+          svr_lin = SVR(kernel='linear', C=1e3)
+          svr_poly = SVR(kernel='poly', C=1e3, degree=2)]
  
 TestModels = pd.DataFrame()
 tmp = {}
